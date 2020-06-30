@@ -1,15 +1,16 @@
 import 'package:coronavirus/constant.dart';
-import 'package:coronavirus/info_screen.dart';
+// import 'package:coronavirus/info_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class MyHeader extends StatefulWidget {
   final String image;
   final String textTop;
+  final String textCenter;
   final String textBottom;
   final double offset;
   const MyHeader(
-      {Key key, this.image, this.textTop, this.textBottom, this.offset})
+      {Key key, this.image, this.textTop, this.textCenter, this.textBottom, this.offset})
       : super(key: key);
 
   @override
@@ -41,19 +42,19 @@ class _MyHeaderState extends State<MyHeader> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: <Widget>[
-            GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return InfoScreen();
-                    },
-                  ),
-                );
-              },
-              child: SvgPicture.asset("assets/icons/menu.svg"),
-            ),
+            // GestureDetector(
+            //   onTap: () {
+            //     Navigator.push(
+            //       context,
+            //       MaterialPageRoute(
+            //         builder: (context) {
+            //           return InfoScreen();
+            //         },
+            //       ),
+            //     );
+            //   },
+            //   child: SvgPicture.asset("assets/icons/menu.svg"),
+            // ),
             SizedBox(height: 20),
             Expanded(
               child: Stack(
@@ -71,7 +72,7 @@ class _MyHeaderState extends State<MyHeader> {
                     top: 20 - widget.offset / 2,
                     left: 150,
                     child: Text(
-                      "${widget.textTop} \n${widget.textBottom}",
+                      "${widget.textTop} \n ${widget.textCenter} \n${widget.textBottom}",
                       style: kHeadingTextStyle.copyWith(
                         color: Colors.white,
                       ),
